@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+private let animationDuration = 0.4
+
+class ComposeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var photoButton: UIButton!
@@ -16,6 +18,8 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
+    
+    private var isPresenting = true
     
     private let buttonAppearOffsetAndDurations :[(delay: NSTimeInterval, duratoin: NSTimeInterval)] = [
         (0.1, 0.4),   // Text Button
@@ -75,6 +79,44 @@ class ComposeViewController: UIViewController {
                 UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
                     button.transform = CGAffineTransformMakeTranslation(0, offset)
                     }, completion: nil)
+            }
+        }
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        // The value here should be the duration of the animations scheduled in the animationTransition method
+        return animationDuration
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
             }
         }
     }

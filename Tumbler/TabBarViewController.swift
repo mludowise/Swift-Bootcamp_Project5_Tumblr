@@ -14,9 +14,7 @@ let kComposeViewControllerID = "composeViewController"
 let kAccountViewControllerID = "accountViewController"
 let kTrendingViewControllerID = "trendingViewController"
 
-private let animationDuration = 0.4
-
-class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class TabBarViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
@@ -33,9 +31,6 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     var currentTabButton : UIButton!
     var selectedViewController : UIViewController!
     
-    var isPresenting = true
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,52 +45,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         // Allows compose modal to be transparent
 //        self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as UIViewController
-        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationVC.transitioningDelegate = self
-    }
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        // The value here should be the duration of the animations scheduled in the animationTransition method
-        return animationDuration
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
-        if (isPresenting) {
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                toViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
-            }
-        }
-    }
-    
     @IBAction func onTabButton(sender: UIButton) {
         var viewController = homeViewController
         switch (sender) {
@@ -129,5 +79,13 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         selectedViewController.view.removeFromSuperview()
         selectedViewController.removeFromParentViewController()
         selectedViewController = viewController
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destinationVC = segue.destinationViewController as UIViewController
+        if (destinationVC is ComposeViewController) {
+            destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+            destinationVC.transitioningDelegate = destinationVC as? UIViewControllerTransitioningDelegate
+        }
     }
 }
