@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Primary view controller used for all tabbing views
 class ViewController: UIViewController {
-
+    
+    // Check for custom tansitions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var destinationVC = segue.destinationViewController as UIViewController
         if (destinationVC is UIViewControllerTransitioningDelegate) {
