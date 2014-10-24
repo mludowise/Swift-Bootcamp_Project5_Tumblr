@@ -76,7 +76,7 @@
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" id="u3h-gr-pmr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <connections>
                                     <segue destination="rnL-zL-dcH" kind="embed" id="FaW-WS-Ch9"/>
                                 </connections>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="1255" y="1425.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="U2m-bi-7zF">
             <objects>
-                <viewController storyboardIdentifier="composeViewController" automaticallyAdjustsScrollViewInsets="NO" id="UDz-VU-C4g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="composeViewController" automaticallyAdjustsScrollViewInsets="NO" id="UDz-VU-C4g" customClass="ComposeViewController" customModule="Tumbler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kyk-0i-Hwe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,6 +260,9 @@
                                 <state key="normal" image="nevermind">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNevermndButton:" destination="UDz-VU-C4g" eventType="touchUpInside" id="Yds-cz-8YD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.25882352941176473" blue="0.33725490196078434" alpha="0.5" colorSpace="calibratedRGB"/>
