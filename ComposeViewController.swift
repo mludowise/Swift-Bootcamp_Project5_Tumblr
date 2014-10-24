@@ -100,23 +100,23 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        var composeViewController = transitionContext.viewControllerForKey(isPresenting ? UITransitionContextToViewControllerKey : UITransitionContextFromViewControllerKey)!
         
         if (isPresenting) {
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
+            var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+            containerView.addSubview(composeViewController.view)
+            composeViewController.view.alpha = 0
             UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                toViewController.view.alpha = 1
+                composeViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
             }
         } else {
             UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                fromViewController.view.alpha = 0
+                composeViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
+                    composeViewController.view.removeFromSuperview()
             }
         }
     }
