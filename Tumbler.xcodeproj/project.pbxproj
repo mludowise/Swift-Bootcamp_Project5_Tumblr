@@ -12,6 +12,7 @@
 		E66B7D7719FA4CE1006F0699 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E66B7D7619FA4CE1006F0699 /* Images.xcassets */; };
 		E66B7D7A19FA4CE1006F0699 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66B7D7819FA4CE1006F0699 /* LaunchScreen.xib */; };
 		E66B7D8619FA4CE1006F0699 /* TumblerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D8519FA4CE1006F0699 /* TumblerTests.swift */; };
+		E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		E66B7D7F19FA4CE1006F0699 /* TumblerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumblerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E66B7D8419FA4CE1006F0699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E66B7D8519FA4CE1006F0699 /* TumblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerTests.swift; sourceTree = "<group>"; };
+		E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				E66B7D6F19FA4CE1006F0699 /* AppDelegate.swift */,
 				E66B7D7319FA4CE1006F0699 /* Main.storyboard */,
+				E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */,
 				E66B7D7619FA4CE1006F0699 /* Images.xcassets */,
 				E66B7D7819FA4CE1006F0699 /* LaunchScreen.xib */,
 				E66B7D6D19FA4CE1006F0699 /* Supporting Files */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */,
 				E66B7D7019FA4CE1006F0699 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
