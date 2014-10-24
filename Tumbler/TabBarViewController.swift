@@ -23,41 +23,68 @@ class TabBarViewController: UIViewController {
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var trendingButton: UIButton!
     
-    var currentTabButton : UIButton!
+    var homeViewController : UIViewController!
+    var searchViewController : UIViewController!
+    var accountViewController : UIViewController!
+    var trendingViewController : UIViewController!
     
+    
+    var currentTabButton : UIButton!
+    var selectedViewController : UIViewController!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homeViewController = storyboard?.instantiateViewControllerWithIdentifier(kHomeViewControllerID) as UIViewController
+        searchViewController = storyboard?.instantiateViewControllerWithIdentifier(kSearchViewControllerID) as UIViewController
+        accountViewController = storyboard?.instantiateViewControllerWithIdentifier(kAccountViewControllerID) as UIViewController
+        trendingViewController = storyboard?.instantiateViewControllerWithIdentifier(kTrendingViewControllerID) as UIViewController
+        
         currentTabButton = homeButton
+        selectedViewController = homeViewController
     }
     
     @IBAction func onTabButton(sender: UIButton) {
-        var viewControllerID = kHomeViewControllerID
+        var viewController = homeViewController
         switch (sender) {
         case searchButton:
-            viewControllerID = kSearchViewControllerID
+            viewController = searchViewController
             break
         case composeButton:
-            viewControllerID = kComposeViewControllerID
+            viewController = storyboard?.instantiateViewControllerWithIdentifier(kComposeViewControllerID) as UIViewController
             break
         case accountButton:
-            viewControllerID = kAccountViewControllerID
+            viewController = accountViewController
             break
         case trendingButton:
-            viewControllerID = kTrendingViewControllerID
+            viewController = trendingViewController
             break
         default: // Home Button
-            viewControllerID = kHomeViewControllerID
+            viewController = homeViewController
         }
         
-        var viewController = storyboard?.instantiateViewControllerWithIdentifier(viewControllerID) as UIViewController
-        
-        currentTabButton.selected = false
         if (sender == composeButton) {
             presentViewController(viewController, animated: true, completion: nil)
         } else {
+            currentTabButton.selected = false
             sender.selected = true
-            contentView.addSubview(viewController.view)
+            currentTabButton = sender
+//            contentView.addSubview(viewController.view)
+            selectViewController(viewController)
+        }
+    }
+    
+    private func selectViewController(viewController: UIViewController) {
+        if (selectedViewController == viewController) { // Already selected
+            return
         }
         
+        var toView = viewController.view
+        toView.frame = contentView.frame
+        contentView.addSubview(toView)
+        selectedViewController.view.removeFromSuperview()
+        selectedViewController.removeFromParentViewController()
+        selectedViewController = viewController
     }
 }
