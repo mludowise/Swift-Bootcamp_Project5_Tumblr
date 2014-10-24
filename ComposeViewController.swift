@@ -8,7 +8,25 @@
 
 import UIKit
 
-private let animationDuration = 0.4
+private let fadeInDuration = 0.4
+
+private let buttonAppearDelayAndDurations :[(delay: NSTimeInterval, duration: NSTimeInterval)] = [
+    (0.1, 0.4),   // Text Button
+    (0.0, 0.2),   // Photo Button
+    (0.0, 0.5),   // Quote Button
+    (0.1, 0.5),   // Link Button
+    (0.0, 0.4),   // Chat Button
+    (0.1, 0.6)    // Video Button
+]
+
+private let buttonDisappearDelayAndDurations :[(delay: NSTimeInterval, duration: NSTimeInterval)] = [
+    (0.0, 0.6),   // Text Button
+    (0.0, 0.3),   // Photo Button
+    (0.0, 0.5),   // Quote Button
+    (0.0, 0.7),   // Link Button
+    (0.0, 0.3),   // Chat Button
+    (0.0, 0.8)    // Video Button
+]
 
 class ComposeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
@@ -20,25 +38,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     @IBOutlet weak var videoButton: UIButton!
     
     private var isPresenting = true
-    
-    private let buttonAppearOffsetAndDurations :[(delay: NSTimeInterval, duratoin: NSTimeInterval)] = [
-        (0.1, 0.4),   // Text Button
-        (0.0, 0.2),   // Photo Button
-        (0.0, 0.5),   // Quote Button
-        (0.1, 0.5),   // Link Button
-        (0.0, 0.4),   // Chat Button
-        (0.1, 0.6)    // Video Button
-    ]
-    
-    private let buttonDisappearOffsetAndDurations :[(delay: NSTimeInterval, duratoin: NSTimeInterval)] = [
-        (0.0, 0.6),   // Text Button
-        (0.0, 0.3),   // Photo Button
-        (0.0, 0.5),   // Quote Button
-        (0.0, 0.7),   // Link Button
-        (0.0, 0.3),   // Chat Button
-        (0.0, 0.8)    // Video Button
-    ]
-    
     private var buttons : [UIButton] = []
     
     override func viewDidLoad() {
@@ -58,8 +57,8 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             if (animated) {
                 var offset = view.frame.height - button.frame.origin.y
                 button.transform = CGAffineTransformMakeTranslation(0, offset)
-                var duration = buttonAppearOffsetAndDurations[i].duratoin
-                var delay = buttonAppearOffsetAndDurations[i].delay
+                var duration = buttonAppearDelayAndDurations[i].duration
+                var delay = buttonAppearDelayAndDurations[i].delay
                 
                 UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
                     button.transform = CGAffineTransformIdentity
@@ -73,8 +72,8 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             button.hidden = false
             if (animated) {
                 var offset = -button.frame.origin.y - button.frame.height
-                var duration = buttonAppearOffsetAndDurations[i].duratoin
-                var delay = buttonAppearOffsetAndDurations[i].delay
+                var duration = buttonAppearDelayAndDurations[i].duration
+                var delay = buttonAppearDelayAndDurations[i].delay
                 
                 UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
                     button.transform = CGAffineTransformMakeTranslation(0, offset)
@@ -94,8 +93,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     }
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        // The value here should be the duration of the animations scheduled in the animationTransition method
-        return animationDuration
+        return fadeInDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -106,13 +104,13 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
             containerView.addSubview(composeViewController.view)
             composeViewController.view.alpha = 0
-            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+            UIView.animateWithDuration(fadeInDuration, animations: { () -> Void in
                 composeViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
             }
         } else {
-            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+            UIView.animateWithDuration(fadeInDuration, animations: { () -> Void in
                 composeViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
