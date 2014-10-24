@@ -14,6 +14,8 @@
 		E66B7D8619FA4CE1006F0699 /* TumblerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D8519FA4CE1006F0699 /* TumblerTests.swift */; };
 		E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */; };
 		E66B7D9219FA5F94006F0699 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */; };
+		E66B7D9519FAE879006F0699 /* FadeInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9419FAE879006F0699 /* FadeInViewController.swift */; };
+		E66B7D9719FAED84006F0699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9619FAED84006F0699 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		E66B7D8519FA4CE1006F0699 /* TumblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerTests.swift; sourceTree = "<group>"; };
 		E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeViewController.swift; path = ../ComposeViewController.swift; sourceTree = "<group>"; };
+		E66B7D9419FAE879006F0699 /* FadeInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInViewController.swift; sourceTree = "<group>"; };
+		E66B7D9619FAED84006F0699 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Tumbler/LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 		E66B7D6119FA4CE1006F0699 = {
 			isa = PBXGroup;
 			children = (
+				E66B7D9619FAED84006F0699 /* LoginViewController.swift */,
 				E66B7D6C19FA4CE1006F0699 /* Tumbler */,
 				E66B7D8219FA4CE1006F0699 /* TumblerTests */,
 				E66B7D6B19FA4CE1006F0699 /* Products */,
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */,
+				E66B7D9419FAE879006F0699 /* FadeInViewController.swift */,
 				E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */,
 			);
 			name = "View Controllers";
@@ -223,8 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66B7D9519FAE879006F0699 /* FadeInViewController.swift in Sources */,
 				E66B7D9219FA5F94006F0699 /* ComposeViewController.swift in Sources */,
 				E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */,
+				E66B7D9719FAED84006F0699 /* LoginViewController.swift in Sources */,
 				E66B7D7019FA4CE1006F0699 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

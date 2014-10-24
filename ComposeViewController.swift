@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let fadeInDuration = 0.4
-
 private let buttonAppearDelayAndDurations :[(delay: NSTimeInterval, duration: NSTimeInterval)] = [
     (0.1, 0.4),   // Text Button
     (0.0, 0.2),   // Photo Button
@@ -28,7 +26,7 @@ private let buttonDisappearDelayAndDurations :[(delay: NSTimeInterval, duration:
     (0.0, 0.8)    // Video Button
 ]
 
-class ComposeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class ComposeViewController: FadeInViewController {
     
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var photoButton: UIButton!
@@ -78,43 +76,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
                     button.transform = CGAffineTransformMakeTranslation(0, offset)
                     }, completion: nil)
-            }
-        }
-    }
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return fadeInDuration
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        var containerView = transitionContext.containerView()
-        var composeViewController = transitionContext.viewControllerForKey(isPresenting ? UITransitionContextToViewControllerKey : UITransitionContextFromViewControllerKey)!
-        
-        if (isPresenting) {
-            var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-            containerView.addSubview(composeViewController.view)
-            composeViewController.view.alpha = 0
-            UIView.animateWithDuration(fadeInDuration, animations: { () -> Void in
-                composeViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(fadeInDuration, animations: { () -> Void in
-                composeViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    composeViewController.view.removeFromSuperview()
             }
         }
     }
