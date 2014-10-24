@@ -22,11 +22,7 @@ class TabBarViewController: ViewController {
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var trendingButton: UIButton!
     
-    var homeViewController : UIViewController!
-    var searchViewController : UIViewController!
-    var accountViewController : UIViewController!
-    var trendingViewController : UIViewController!
-    
+    var viewControllers : [UIViewController] = []
     
     var currentTabButton : UIButton!
     var selectedViewController : UIViewController!
@@ -34,38 +30,20 @@ class TabBarViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeViewController = storyboard?.instantiateViewControllerWithIdentifier(kHomeViewControllerID) as UIViewController
-        searchViewController = storyboard?.instantiateViewControllerWithIdentifier(kSearchViewControllerID) as UIViewController
-        accountViewController = storyboard?.instantiateViewControllerWithIdentifier(kAccountViewControllerID) as UIViewController
-        trendingViewController = storyboard?.instantiateViewControllerWithIdentifier(kTrendingViewControllerID) as UIViewController
+        viewControllers.append(storyboard?.instantiateViewControllerWithIdentifier(kHomeViewControllerID) as UIViewController)
+        viewControllers.append(storyboard?.instantiateViewControllerWithIdentifier(kSearchViewControllerID) as UIViewController)
+        viewControllers.append(storyboard?.instantiateViewControllerWithIdentifier(kAccountViewControllerID) as UIViewController)
+        viewControllers.append(storyboard?.instantiateViewControllerWithIdentifier(kTrendingViewControllerID) as UIViewController)
         
         currentTabButton = homeButton
-        selectedViewController = homeViewController
-        
-        // Allows compose modal to be transparent
-//        self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        selectedViewController = viewControllers[0]
     }
         
     @IBAction func onTabButton(sender: UIButton) {
-        var viewController = homeViewController
-        switch (sender) {
-        case searchButton:
-            viewController = searchViewController
-            break
-        case accountButton:
-            viewController = accountViewController
-            break
-        case trendingButton:
-            viewController = trendingViewController
-            break
-        default: // Home Button
-            viewController = homeViewController
-        }
-        
         currentTabButton.selected = false
         sender.selected = true
         currentTabButton = sender
-        selectViewController(viewController)
+        selectViewController(viewControllers[sender.tag])
     }
     
     private func selectViewController(viewController: UIViewController) {
