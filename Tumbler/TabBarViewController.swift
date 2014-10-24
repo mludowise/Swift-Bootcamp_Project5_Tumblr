@@ -14,7 +14,7 @@ let kComposeViewControllerID = "composeViewController"
 let kAccountViewControllerID = "accountViewController"
 let kTrendingViewControllerID = "trendingViewController"
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: ViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
@@ -79,13 +79,5 @@ class TabBarViewController: UIViewController {
         selectedViewController.view.removeFromSuperview()
         selectedViewController.removeFromParentViewController()
         selectedViewController = viewController
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as UIViewController
-        if (destinationVC is ComposeViewController) {
-            destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-            destinationVC.transitioningDelegate = destinationVC as? UIViewControllerTransitioningDelegate
-        }
-    }
+    }    
 }

@@ -13,13 +13,12 @@ private let kFadeInDuration = 0.4
 class FadeInViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     private var isPresenting = true
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        modalPresentationStyle = UIModalPresentationStyle.Custom
+        transitioningDelegate = self
     }
-
+    
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = true
         return self
