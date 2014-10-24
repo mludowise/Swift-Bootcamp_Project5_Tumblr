@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E63B339A19FAFBDA007E545E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B339919FAFBDA007E545E /* TrendingViewController.swift */; };
+		E63B339C19FB0042007E545E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B339B19FB0042007E545E /* SearchViewController.swift */; };
 		E66B7D7019FA4CE1006F0699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D6F19FA4CE1006F0699 /* AppDelegate.swift */; };
 		E66B7D7519FA4CE1006F0699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E66B7D7319FA4CE1006F0699 /* Main.storyboard */; };
 		E66B7D7719FA4CE1006F0699 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E66B7D7619FA4CE1006F0699 /* Images.xcassets */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		E63B339919FAFBDA007E545E /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		E63B339B19FB0042007E545E /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E66B7D6A19FA4CE1006F0699 /* Tumbler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumbler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E66B7D6E19FA4CE1006F0699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E66B7D6F19FA4CE1006F0699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		E66B7D9319FACEE5006F0699 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E63B339B19FB0042007E545E /* SearchViewController.swift */,
 				E63B339919FAFBDA007E545E /* TrendingViewController.swift */,
 				E66B7D9619FAED84006F0699 /* LoginViewController.swift */,
 				E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */,
@@ -241,6 +244,7 @@
 				E66B7D9519FAE879006F0699 /* FadeInViewController.swift in Sources */,
 				E63B339A19FAFBDA007E545E /* TrendingViewController.swift in Sources */,
 				E66B7D9919FAF0CA006F0699 /* Util.swift in Sources */,
+				E63B339C19FB0042007E545E /* SearchViewController.swift in Sources */,
 				E66B7D9219FA5F94006F0699 /* ComposeViewController.swift in Sources */,
 				E66B7D9D19FAF409006F0699 /* ViewController.swift in Sources */,
 				E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */,
