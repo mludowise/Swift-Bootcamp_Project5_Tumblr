@@ -27,17 +27,17 @@
                                             <action selector="onTabButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WPZ-9V-xpA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IVG-Kr-HhM" userLabel="Compose">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IVG-Kr-HhM" userLabel="Compose">
                                         <rect key="frame" x="135" y="4" width="50" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="compose_button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTabButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Lc-JV-ZlW"/>
+                                            <segue destination="UDz-VU-C4g" kind="modal" id="i8S-Xi-cVa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mqn-Yv-ZVX" userLabel="Account">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mqn-Yv-ZVX" userLabel="Account">
                                         <rect key="frame" x="221" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="account_icon">
@@ -48,7 +48,7 @@
                                             <action selector="onTabButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kB1-Kh-gd7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gjl-1P-9jE" userLabel="Trending">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gjl-1P-9jE" userLabel="Trending">
                                         <rect key="frame" x="277" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="trending_icon">
@@ -86,7 +86,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Yi9-5I-Bi8"/>
                     <connections>
                         <outlet property="accountButton" destination="mqn-Yv-ZVX" id="Dk0-Ss-wxk"/>
-                        <outlet property="composeButton" destination="IVG-Kr-HhM" id="rey-PW-M6I"/>
                         <outlet property="contentView" destination="u3h-gr-pmr" id="T0o-ap-lLB"/>
                         <outlet property="homeButton" destination="w2F-gI-u58" id="8zT-aH-8a8"/>
                         <outlet property="searchButton" destination="FF3-Oq-emC" id="8UD-c8-DCc"/>
@@ -211,43 +210,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IOx-ui-CyP">
-                                <rect key="frame" x="123" y="254" width="75" height="96"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IOx-ui-CyP" userLabel="Chat">
+                                <rect key="frame" x="121" y="286" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="chat_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JZ9-fJ-ZFM">
-                                <rect key="frame" x="16" y="254" width="75" height="95"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JZ9-fJ-ZFM" userLabel="Link">
+                                <rect key="frame" x="20" y="286" width="75" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="link_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3B5-Wt-XCc">
-                                <rect key="frame" x="123" y="128" width="75" height="95"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3B5-Wt-XCc">
+                                <rect key="frame" x="123" y="152" width="75" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="photo_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LRT-cK-mqs">
-                                <rect key="frame" x="16" y="127" width="75" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="text_icon">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bMv-lB-ZU2">
-                                <rect key="frame" x="229" y="127" width="75" height="95"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bMv-lB-ZU2">
+                                <rect key="frame" x="225" y="152" width="75" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="quote_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F9D-oA-Ygr">
-                                <rect key="frame" x="229" y="254" width="75" height="96"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F9D-oA-Ygr">
+                                <rect key="frame" x="225" y="286" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="video_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,10 +255,25 @@
                                     <action selector="onNevermndButton:" destination="UDz-VU-C4g" eventType="touchUpInside" id="Yds-cz-8YD"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LRT-cK-mqs">
+                                <rect key="frame" x="20" y="152" width="75" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="text_icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.25882352941176473" blue="0.33725490196078434" alpha="0.5" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="chatButton" destination="IOx-ui-CyP" id="BZC-UH-oSQ"/>
+                        <outlet property="linkButton" destination="JZ9-fJ-ZFM" id="BQb-6n-8nr"/>
+                        <outlet property="photoButton" destination="3B5-Wt-XCc" id="Dc9-gT-KGn"/>
+                        <outlet property="quoteButton" destination="bMv-lB-ZU2" id="Y6T-vu-XHk"/>
+                        <outlet property="textButton" destination="LRT-cK-mqs" id="WQy-9j-CoM"/>
+                        <outlet property="videoButton" destination="F9D-oA-Ygr" id="l24-zd-jNw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83V-5a-C5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

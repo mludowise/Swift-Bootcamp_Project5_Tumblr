@@ -37,7 +37,7 @@
 		E66B7D8419FA4CE1006F0699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E66B7D8519FA4CE1006F0699 /* TumblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerTests.swift; sourceTree = "<group>"; };
 		E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeViewController.swift; path = ../ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,6 @@
 		E66B7D6119FA4CE1006F0699 = {
 			isa = PBXGroup;
 			children = (
-				E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */,
 				E66B7D6C19FA4CE1006F0699 /* Tumbler */,
 				E66B7D8219FA4CE1006F0699 /* TumblerTests */,
 				E66B7D6B19FA4CE1006F0699 /* Products */,
@@ -80,9 +79,9 @@
 		E66B7D6C19FA4CE1006F0699 /* Tumbler */ = {
 			isa = PBXGroup;
 			children = (
+				E66B7D9319FACEE5006F0699 /* View Controllers */,
 				E66B7D6F19FA4CE1006F0699 /* AppDelegate.swift */,
 				E66B7D7319FA4CE1006F0699 /* Main.storyboard */,
-				E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */,
 				E66B7D7619FA4CE1006F0699 /* Images.xcassets */,
 				E66B7D7819FA4CE1006F0699 /* LaunchScreen.xib */,
 				E66B7D6D19FA4CE1006F0699 /* Supporting Files */,
@@ -113,6 +112,15 @@
 				E66B7D8419FA4CE1006F0699 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E66B7D9319FACEE5006F0699 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */,
+				E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

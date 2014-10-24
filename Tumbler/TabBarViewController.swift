@@ -14,12 +14,13 @@ let kComposeViewControllerID = "composeViewController"
 let kAccountViewControllerID = "accountViewController"
 let kTrendingViewControllerID = "trendingViewController"
 
-class TabBarViewController: UIViewController {
+private let animationDuration = 0.4
+
+class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var composeButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var trendingButton: UIButton!
     
@@ -32,6 +33,8 @@ class TabBarViewController: UIViewController {
     var currentTabButton : UIButton!
     var selectedViewController : UIViewController!
     
+    var isPresenting = true
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,54 @@ class TabBarViewController: UIViewController {
         
         currentTabButton = homeButton
         selectedViewController = homeViewController
+        
+        // Allows compose modal to be transparent
+//        self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destinationVC = segue.destinationViewController as UIViewController
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = self
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        // The value here should be the duration of the animations scheduled in the animationTransition method
+        return animationDuration
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        println("animating transition")
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
+        }
     }
     
     @IBAction func onTabButton(sender: UIButton) {
@@ -50,9 +101,6 @@ class TabBarViewController: UIViewController {
         switch (sender) {
         case searchButton:
             viewController = searchViewController
-            break
-        case composeButton:
-            viewController = storyboard?.instantiateViewControllerWithIdentifier(kComposeViewControllerID) as UIViewController
             break
         case accountButton:
             viewController = accountViewController
@@ -64,15 +112,10 @@ class TabBarViewController: UIViewController {
             viewController = homeViewController
         }
         
-        if (sender == composeButton) {
-            presentViewController(viewController, animated: true, completion: nil)
-        } else {
-            currentTabButton.selected = false
-            sender.selected = true
-            currentTabButton = sender
-//            contentView.addSubview(viewController.view)
-            selectViewController(viewController)
-        }
+        currentTabButton.selected = false
+        sender.selected = true
+        currentTabButton = sender
+        selectViewController(viewController)
     }
     
     private func selectViewController(viewController: UIViewController) {
