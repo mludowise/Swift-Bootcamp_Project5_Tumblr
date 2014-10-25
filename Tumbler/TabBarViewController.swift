@@ -18,12 +18,9 @@ class TabBarViewController: ViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var accountButton: UIButton!
-    @IBOutlet weak var trendingButton: UIButton!
+    @IBOutlet weak var explorePopupView: UIImageView!
     
     var viewControllers : [UIViewController] = []
-    
     var currentTabButton : UIButton!
     var selectedViewController : UIViewController!
     
@@ -36,14 +33,22 @@ class TabBarViewController: ViewController {
         viewControllers.append(storyboard?.instantiateViewControllerWithIdentifier(kTrendingViewControllerID) as UIViewController)
         
         currentTabButton = homeButton
+        currentTabButton.selected = true
         selectedViewController = viewControllers[0]
+        
+        UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: { () -> Void in
+            self.explorePopupView.frame.offset(dx: 0, dy: 8)
+        }, completion: nil)
     }
         
     @IBAction func onTabButton(sender: UIButton) {
         currentTabButton.selected = false
         sender.selected = true
         currentTabButton = sender
-        selectViewController(viewControllers[sender.tag])
+        
+        var viewController = viewControllers[sender.tag]
+        explorePopupView.hidden = viewController is SearchViewController
+        selectViewController(viewController)
     }
     
     private func selectViewController(viewController: UIViewController) {
