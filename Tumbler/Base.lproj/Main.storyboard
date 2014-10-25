@@ -281,7 +281,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NJv-2C-jrV">
-                                        <rect key="frame" x="169" y="361" width="103" height="46"/>
+                                        <rect key="frame" x="169" y="359" width="103" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.28235294117647058" green="0.34901960784313724" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -449,6 +449,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PXC-Zw-icL"/>
+        <segue reference="tm1-gC-HuI"/>
     </inferredMetricsTieBreakers>
 </document>
