@@ -35,12 +35,20 @@ class TabBarViewController: ViewController {
         currentTabButton = homeButton
         currentTabButton.selected = true
         selectedViewController = viewControllers[0]
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        animatePopup()
+    }
+    
+    private func animatePopup() {
         UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: { () -> Void in
             self.explorePopupView.frame.offset(dx: 0, dy: 8)
-        }, completion: nil)
+            }) { (b: Bool) -> Void in
+            self.animatePopup() // This stops when the app is closed, but we never want to stop!
+        }
     }
-        
+    
     @IBAction func onTabButton(sender: UIButton) {
         currentTabButton.selected = false
         sender.selected = true
