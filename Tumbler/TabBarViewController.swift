@@ -61,8 +61,9 @@ class TabBarViewController: ViewController {
         var toView = viewController.view
         toView.frame = contentView.frame
         contentView.addSubview(toView)
+        self.addChildViewController(viewController)
         selectedViewController.view.removeFromSuperview()
         selectedViewController.removeFromParentViewController()
         selectedViewController = viewController
-    }    
+    }
 }
