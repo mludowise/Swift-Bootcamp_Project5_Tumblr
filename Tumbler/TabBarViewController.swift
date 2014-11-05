@@ -22,7 +22,7 @@ class TabBarViewController: CustomViewController {
     
     var viewControllers : [UIViewController] = []
     var currentTabButton : UIButton!
-    var selectedViewController : UIViewController!
+    var currentViewController : UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class TabBarViewController: CustomViewController {
         
         currentTabButton = homeButton
         currentTabButton.selected = true
-        selectedViewController = viewControllers[0]
+        currentViewController = viewControllers[0]
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,17 +53,16 @@ class TabBarViewController: CustomViewController {
         selectViewController(viewController)
     }
     
-    private func selectViewController(viewController: UIViewController) {
-        if (selectedViewController == viewController) { // Already selected
+    private func selectViewController(nextViewController: UIViewController) {
+        if (currentViewController == nextViewController) { // Already selected
             return
         }
         
-        var toView = viewController.view
-        toView.frame = contentView.frame
-        contentView.addSubview(toView)
-        self.addChildViewController(viewController)
-        selectedViewController.view.removeFromSuperview()
-        selectedViewController.removeFromParentViewController()
-        selectedViewController = viewController
+        nextViewController.view.frame = contentView.frame
+        contentView.addSubview(nextViewController.view)
+        self.addChildViewController(nextViewController)
+        currentViewController.view.removeFromSuperview()
+        currentViewController.removeFromParentViewController()
+        currentViewController = nextViewController
     }
 }

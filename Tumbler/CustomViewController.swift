@@ -5,6 +5,8 @@
 //  Created by Mel Ludowise on 10/24/14.
 //  Copyright (c) 2014 Mel Ludowise. All rights reserved.
 //
+//  This view controller checks all destination ViewControllers for custom transitions before segueing.
+//
 
 import UIKit
 
