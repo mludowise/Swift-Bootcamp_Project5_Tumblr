@@ -19,7 +19,7 @@
 		E66B7D9519FAE879006F0699 /* FadeInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9419FAE879006F0699 /* FadeInViewController.swift */; };
 		E66B7D9719FAED84006F0699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9619FAED84006F0699 /* LoginViewController.swift */; };
 		E66B7D9919FAF0CA006F0699 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9819FAF0CA006F0699 /* Util.swift */; };
-		E66B7D9D19FAF409006F0699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9C19FAF409006F0699 /* ViewController.swift */; };
+		E66B7D9D19FAF409006F0699 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B7D9C19FAF409006F0699 /* CustomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		E66B7D9419FAE879006F0699 /* FadeInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInViewController.swift; sourceTree = "<group>"; };
 		E66B7D9619FAED84006F0699 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E66B7D9819FAF0CA006F0699 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		E66B7D9C19FAF409006F0699 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E66B7D9C19FAF409006F0699 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 				E66B7D9119FA5F94006F0699 /* ComposeViewController.swift */,
 				E66B7D8F19FA518C006F0699 /* TabBarViewController.swift */,
 				E66B7D9419FAE879006F0699 /* FadeInViewController.swift */,
-				E66B7D9C19FAF409006F0699 /* ViewController.swift */,
+				E66B7D9C19FAF409006F0699 /* CustomViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				E66B7D9919FAF0CA006F0699 /* Util.swift in Sources */,
 				E63B339C19FB0042007E545E /* SearchViewController.swift in Sources */,
 				E66B7D9219FA5F94006F0699 /* ComposeViewController.swift in Sources */,
-				E66B7D9D19FAF409006F0699 /* ViewController.swift in Sources */,
+				E66B7D9D19FAF409006F0699 /* CustomViewController.swift in Sources */,
 				E66B7D9019FA518C006F0699 /* TabBarViewController.swift in Sources */,
 				E66B7D9719FAED84006F0699 /* LoginViewController.swift in Sources */,
 				E66B7D7019FA4CE1006F0699 /* AppDelegate.swift in Sources */,

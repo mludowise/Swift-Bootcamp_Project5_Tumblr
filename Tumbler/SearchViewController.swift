@@ -16,7 +16,7 @@ private let kLoadingImageNames = [
 
 private let kLoadingFrameTime = 0.25
 
-class SearchViewController: ViewController {
+class SearchViewController: CustomViewController {
 
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var searchFeed: UIImageView!

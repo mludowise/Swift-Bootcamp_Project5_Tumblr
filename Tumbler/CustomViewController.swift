@@ -9,7 +9,7 @@
 import UIKit
 
 // Primary view controller used for all tabbing views
-class ViewController: UIViewController {
+class CustomViewController: UIViewController {
     
     // Check for custom tansitions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

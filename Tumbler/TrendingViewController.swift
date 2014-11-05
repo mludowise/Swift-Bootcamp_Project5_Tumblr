@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController {
+class TrendingViewController: CustomViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     

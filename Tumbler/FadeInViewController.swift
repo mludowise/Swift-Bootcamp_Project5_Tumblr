@@ -10,7 +10,7 @@ import UIKit
 
 private let kFadeInDuration = 0.4
 
-class FadeInViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class FadeInViewController: CustomViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     private var isPresenting = true
     

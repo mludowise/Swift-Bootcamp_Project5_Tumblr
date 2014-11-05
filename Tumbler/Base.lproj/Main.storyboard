@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="460" y="345"/>
         </scene>
-        <!--View Controller-->
+        <!--Custom View Controller-->
         <scene sceneID="Swb-5l-ey2">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" automaticallyAdjustsScrollViewInsets="NO" id="rnL-zL-dcH" customClass="ViewController" customModule="Tumbler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" automaticallyAdjustsScrollViewInsets="NO" id="rnL-zL-dcH" customClass="CustomViewController" customModule="Tumbler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r6j-6W-irz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="-350" y="1829"/>
         </scene>
-        <!--View Controller-->
+        <!--Custom View Controller-->
         <scene sceneID="Tbx-J4-TpV">
             <objects>
-                <viewController storyboardIdentifier="accountViewController" automaticallyAdjustsScrollViewInsets="NO" id="EpF-2E-7SF" customClass="ViewController" customModule="Tumbler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountViewController" automaticallyAdjustsScrollViewInsets="NO" id="EpF-2E-7SF" customClass="CustomViewController" customModule="Tumbler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4Gf-Mw-JLx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -14,7 +14,7 @@ let kComposeViewControllerID = "composeViewController"
 let kAccountViewControllerID = "accountViewController"
 let kTrendingViewControllerID = "trendingViewController"
 
-class TabBarViewController: ViewController {
+class TabBarViewController: CustomViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
